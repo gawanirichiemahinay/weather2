@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('img/forest.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.15);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.main-container {
+  z-index: 1;
+  width: 300px;
+  height: 500px;
+  background: linear-gradient(to top, rgba(0,0,0,0.15), rgba(255,255,255,0.15));
+  border-radius: 12px;
+  backdrop-filter: blur(75px);
+  padding: 20px;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+/* Input Section */
+.input-container {
+  position: relative;
+}
+
+.city-input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 99px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0,0,0,0.15);
+  outline: none;
+  font-weight: 500;
+  transition: 0.25s border;
+  padding-right: 45px;
+  margin-bottom: 25px;
+}
+
+.city-input:focus {
+  border: 3px solid rgba(255,255,255,0.6);
+}
+
+.city-input::placeholder {
+  color: rgba(255,255,255,0.75);
+}
+
+.search-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Weather Info */
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.location-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Summary */
+.weather-summary-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.weather-summary-img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.weather-summary-info {
+  text-align: right;
+}
+
+.weather-summary-info h1 {
+  font-size: 2rem;
+}
+
+.weather-summary-info h3 {
+  font-size: 1.1rem;
+}
+
+/* Conditions */
+.weather-conditions-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.condition-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.condition-item span {
+  font-size: 28px;
+}
+
+/* Forecast Scroller */
+.forecast-item-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.forecast-item-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.forecast-item-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.15);
+  border-radius: 99px;
+}
+
+.forecast-item-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 99px;
+}
+
+.forecast-item {
+  min-width: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.forecast-item:hover {
+  background: rgba(0,0,0,0.15);
+}
+
+.forecast-item-img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Section Message */
+.section-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  margin-top: 25%;
+}
+
+.section-message img {
+  height: 150px;
+  width: auto;
+}
+
+/* Video Background */
+.weather-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.weather-bg-video.active {
+  opacity: 1;
+}
+
+body.video-active {
+  background-image: none;
+}
+
